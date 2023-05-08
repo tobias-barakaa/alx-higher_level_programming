@@ -1,3 +1,2 @@
 number = 98
-str= Battery street
-print(f"{number} {str}\n")
+print(f"{number} Battery street\n")
