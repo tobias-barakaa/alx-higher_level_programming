@@ -1,1 +1,2 @@
-import this;print()
+#!/usr/bin/python3
+'import this'
