@@ -2,7 +2,7 @@
 #define LISTS_H
 
 #include <stdlib.h>
-
+def islower(c):
 
 
 
