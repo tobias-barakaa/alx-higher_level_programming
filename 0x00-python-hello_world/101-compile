@@ -1,5 +1,5 @@
-import compileall
-import os
+#!/bin/bash
 
-py_file = os.environ['PYFILE']
-compileall.compile_file(py_file)
+py_file=$PYFILE
+
+python3 -c "import py_compile; py_compile.compile('$py_file', '$py_file' + 'c')"
