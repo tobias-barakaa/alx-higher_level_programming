@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 import random
+
 number = random.randint(-10, 10)
 
 for w in str(abs(number)):
-    if w > 0:
-     print(w, "is positive")
-    elif w < 0:
-       print(w, "is negative")
+    digit = int(w)
+    if digit > 0:
+        print(digit, "is positive")
+    elif digit < 0:
+        print(digit, "is negative")
     else:
-       print(w, "is zero")
+        print(digit, "is zero")
