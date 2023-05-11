@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-
+import sys
 
 if __name__ == "__main__":
-    
-    import sys
-
-    all = 0
-    for num in range(len(sys.argv) - 1):
-        all += int(sys.argv[num + 1])
-    print("{}".format(all))
+    args = sys.argv[1:] # get all command line arguments except the first one (which is the name of the script itself)
+    sum = 0
+    for arg in args:
+        sum += int(arg)
+    print(sum)
