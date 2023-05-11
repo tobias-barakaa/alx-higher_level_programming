@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-# 3-infinite_add.py
-# Brennan D Baraban <375@holbertonschool.com>
+import sys
 
 if __name__ == "__main__":
-    """Print the addition of all arguments."""
-    import sys
-
-    total = 0
-    for i in range(len(sys.argv) - 1):
-        total += int(sys.argv[i + 1])
-    print("{}".format(total))
+    args = sys.argv[1:] # get all command line arguments except the first one (which is the name of the script itself)
+    sum = 0
+    for arg in args:
+        sum += int(arg)
+    print(sum)
