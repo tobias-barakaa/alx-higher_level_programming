@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 #function imported
 
 from add_0 import add
