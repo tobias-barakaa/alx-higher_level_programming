@@ -5,8 +5,8 @@
   Return True or false
 """
 def safe_print_integer(value):
-       try:
+    try:
         print("{:d}".format(value))
-        return (True)
-        except (ValueError, TypeError):
-        return (False)
+        return True
+    except (ValueError, TypeError):
+        return False
