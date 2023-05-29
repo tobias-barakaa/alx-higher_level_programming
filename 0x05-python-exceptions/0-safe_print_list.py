@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 
 def safe_print_list(my_list=[], x=0):
+    count = 0  # Variable to keep track of the number of elements printed
+
     try:
-        counting = 0
-        for i in my_list:
-            counting += 1
-            if counting <= x:
-                print(i, end=" ")
-            else:
-                break
-        print()
-        return counting
-    except:
-        return 0
+        for i in range(x):
+            print(my_list[i], end=" ")  # Print the element without a new line
+            count += 1
+    except IndexError:
+        pass
+    finally:
+        print()  # Print a new line
+        return count
