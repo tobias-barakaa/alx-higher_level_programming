@@ -5,10 +5,9 @@
   Return True or false
 """
 def safe_print_integer(value):
-    try:
-        print("{:d}".format(value))
+       try:
+        print("{:d}".format(int(value)))
         return True
-    except (ValueError, TypeError):
-        print("")
+    except ValueError:
+        print(")
         return False
-
