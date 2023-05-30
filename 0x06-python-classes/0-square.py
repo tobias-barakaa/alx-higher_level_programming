@@ -1,14 +1,11 @@
 #!/usr/bin/python3
 
+"""
+Square class to hold objects
+"""
 class Square:
 
     """
-    This class represents a square.
-
-    Attributes:
-        None
-
-    Methods:
-        None
+    represents a square.
     """
-    pass
+   pass
