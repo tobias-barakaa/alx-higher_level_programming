@@ -92,7 +92,7 @@ class Rectangle:
             If width or height is equal to 0, returns an empty string.
         """
         if self.__width == 0 or self.__height == 0:
-            return 0
+            return ""
         return '\n'.join(['#' * self.__width] * self.__height)
 
     def __repr__(self):
@@ -100,6 +100,6 @@ class Rectangle:
         Return a string representation of the rectangle.
 
         Returns:
-            A string representation of the rectangle.
+            A string representation of the rectangle object.
         """
         return f"Rectangle(width={self.__width}, height={self.__height})"
