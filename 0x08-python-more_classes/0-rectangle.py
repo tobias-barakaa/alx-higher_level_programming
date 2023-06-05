@@ -2,3 +2,4 @@
 
 class Rectangle:
     """compute area"""
+Rodger = Rectangle()
