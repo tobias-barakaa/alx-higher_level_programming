@@ -90,16 +90,7 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
 
-        rect_str = '# ' * self.__width
-        rect_str = (rect_str + '\n') * self.__height
-        return rect_str
-
-    def __repr__(self):
-        """
-        Return a string representation of the rectangle.
-
-        Returns:
-            A string representation of the rectangle object.
-        """
-        return f"Rectangle(width={self.__width}, height={self.__height})"
-
+        rect_str = ""
+        for _ in range(self.__height):
+            rect_str += "#" * self.__width + "\n"
+        return rect_str.rstrip("\n")
