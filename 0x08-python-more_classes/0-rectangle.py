@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
 class Rectangle:
-    """compute area"""
-Rodger = Rectangle()
+    """
+    Rectangle to try out area of lenth width
+    
+    """
