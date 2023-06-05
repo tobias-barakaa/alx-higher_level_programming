@@ -8,11 +8,11 @@ class Rectangle:
     """Empty class per task instructions, will be built upon in later tasks.
     """
 
-    def __init__(self, _width, _height):
+    def __init__(self, width=0, height=0):
         """Initializes a Rectangle object with width and height set to 0.
         """
-        self._width = _width
-        self._height = _height
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
@@ -20,7 +20,7 @@ class Rectangle:
         Returns:
             The width of the rectangle.
         """
-        return self._width
+        return self.__width
 
     @width.setter
     def width(self, value):
@@ -36,7 +36,7 @@ class Rectangle:
         elif value < 0:
             raise ValueError("width must be >= 0")
         else:
-            self._width = value
+            self.__width = value
 
     @property
     def height(self):
@@ -44,7 +44,7 @@ class Rectangle:
         Returns:
             The height of the rectangle.
         """
-        return self._height
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -60,4 +60,4 @@ class Rectangle:
         elif value < 0:
             raise ValueError("height must be >= 0")
         else:
-            self._height = value
+            self.__height = value
