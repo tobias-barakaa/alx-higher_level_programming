@@ -84,22 +84,12 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """
-        Return a string representation of the rectangle.
-
-        Returns:
-            A string representing the rectangle using '#' characters.
-            If width or height is equal to 0, returns an empty string.
-        """
+        """Return a string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return '\n'.join(['#' * self.__width] * (self.__height))
+        rectangle_str = '\n'.join(['#' * self.__width] * self.__height)
+        return rectangle_str
 
     def __repr__(self):
-        """
-        Return a string representation of the rectangle.
-
-        Returns:
-            A string representation of the rectangle object.
-        """
+        """Return a string representation of the rectangle object."""
         return f"Rectangle(width={self.__width}, height={self.__height})"
