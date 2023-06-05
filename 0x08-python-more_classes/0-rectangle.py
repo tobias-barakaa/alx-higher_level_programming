@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-class Rectangle:
+class Rectangle():
     """
     Rectangle to try out area of lenth width
     """
