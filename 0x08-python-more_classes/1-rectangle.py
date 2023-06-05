@@ -47,7 +47,7 @@ class Rectangle:
         return self.__height
 
     @height.setter
-    def height(self, value:int):
+    def height(self, value):
         """Setter method to set the height of the rectangle.
         Args:
             value (int): The height value to be set.
@@ -61,9 +61,3 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self.__height = value
-
-rectangle1 = Rectangle()
-print(rectangle1.__dict__)
-
-rectangle2 = Rectangle()
-print(rectangle2.__dict__)
