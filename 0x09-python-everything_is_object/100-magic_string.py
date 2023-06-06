@@ -7,7 +7,6 @@ def magic_string():
     functioin that returns a string “BestSchool” n 
     times the number of the iteration
     """
-    if not hasattr(magic_string, 'n', 'count'):
-        magic_string.count = 0
-    magic_string.count += 1
+    count = 0
+    magic_string.n = getattr(magic_string, 'n', count)
     return "BestSchool" + (", BestSchool" * (magic_string.n - 1))
