@@ -100,11 +100,11 @@ class Rectangle:
         """
         Returns a string representation of the Rectangle.
         """
-        return f"Rectangle({self.__width}, {self.__height})"
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
         
-    def __del__(num):
+    def __del__(self):
         """
         Print a farewell message when an instance of Rectangle is deleted.
         """
-        num.number_of_instances -= 1
+        type(self).number_of_instances -= 1
         print("Bye rectangle...")
