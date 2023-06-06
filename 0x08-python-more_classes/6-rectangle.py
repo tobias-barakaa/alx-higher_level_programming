@@ -7,6 +7,7 @@
 class Rectangle:
     """Empty class per task instructions, will be built upon in later tasks.
     """
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """Initializes a Rectangle object with width and height set to 0.
@@ -101,11 +102,9 @@ class Rectangle:
         """
         return f"Rectangle({self.__width}, {self.__height})"
         
-    def __del__(self):
+    def __del__(num):
         """
         Print a farewell message when an instance of Rectangle is deleted.
         """
-        w = str(eval('self.width'))
-        h = str(eval('self.height'))
-
-        return 'Rectangle(' + w + ', ' + h + ')'
+        num.number_of_instances -= 1
+        print("Bye rectangle...")
