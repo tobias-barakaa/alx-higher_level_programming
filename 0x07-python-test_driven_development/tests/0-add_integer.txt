@@ -1,0 +1,41 @@
+function test to check addition a and b
+
+---------------------------------------
+
+Test cases for function
+
+--- Import add_interget----
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer()
+Traceback (most recent call last):
+   ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer("String", 43)
+Traceback (most recent call last):
+   ...
+TypeError: a must be an integer
+
+>>> add_integer(45, "string")
+Traceback (most recent call last):
+   ...
+TypeError: b must be an integer
+
+>>> add_integer("both-string", "string")
+Traceback (most recent call last):
+   ...
+TypeError: a must be an integer
+
+>>> add_integer(1, 2)
+3
+
+>>> add_integer(100, -2)
+98
+
+>>> add_integer(2)
+100
+
+>>> add_integer(100.3, -2)
+98

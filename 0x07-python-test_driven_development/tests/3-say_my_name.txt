@@ -1,0 +1,28 @@
+Test to test my function say_my-name()
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name()
+Traceback (most recent call last):
+  ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+>>> say_my_name(first_name, last_name="")
+Traceback (most recent call last):
+  ...
+NameError: name 'first_name' is not defined
+
+>>> first_name("John Smith")
+Traceback (most recent call last):
+  ...
+NameError: name 'first_name' is not defined
+
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+>>> say_my_name("Walter", "White")
+My name is Walter White
+
+>>> say_my_name("Bob")
+My name is Bob 
+
