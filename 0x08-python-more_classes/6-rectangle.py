@@ -105,5 +105,7 @@ class Rectangle:
         """
         Print a farewell message when an instance of Rectangle is deleted.
         """
-        print("Bye rectangle...")
-    
+        w = str(eval('self.width'))
+        h = str(eval('self.height'))
+
+        return 'Rectangle(' + w + ', ' + h + ')'
