@@ -88,13 +88,12 @@ class Rectangle:
         """
         Returns a string with the representation of the Rectangle.
         """
-        if self.__width == 0 or self.__height == 0:
-            return ""
-
-        rect_str = ""
-        for _ in range(self.__height):
-            rect_str += "#" * self.__width + "\n"
-        return rect_str.rstrip("\n")
+        for roww in range(self.__height):
+            for coll in range(self.__width):
+                str += '#'
+            if self.__width != 0 and roww < (self.__height - 1):
+                str += '\n'
+        return str
 
     def __repr__(self):
         """
