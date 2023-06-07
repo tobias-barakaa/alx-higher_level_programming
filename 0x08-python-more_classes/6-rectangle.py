@@ -8,6 +8,7 @@ class Rectangle:
     """Empty class per task instructions, will be built upon in later tasks.
     """
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initializes a Rectangle object with width and height set to 0.
@@ -88,12 +89,16 @@ class Rectangle:
         """
         Returns a string with the representation of the Rectangle.
         """
-        for roww in range(self.__height):
-            for coll in range(self.__width):
-                str += '#'
-            if self.__width != 0 and roww < (self.__height - 1):
-                str += '\n'
-        return str
+        total = ""
+        for i in range(self.__height):
+            for j in range(self.__width):
+                try:
+                    total += str(self.print_symbol)
+                except Exception:
+                    total += type(self).print_symbol
+            if i is not self.__height - 1:
+                total += "\n"
+        return total
 
     def __repr__(self):
         """
