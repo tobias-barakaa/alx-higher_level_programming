@@ -96,7 +96,7 @@ class Rectangle:
                     total += str(self.print_symbol)
                 except Exception:
                     total += type(self).print_symbol
-            if i is not self.__height - 1:
+            if i != self.__height - 1:
                 total += "\n"
         return total
 
@@ -105,7 +105,7 @@ class Rectangle:
         Returns a string representation of the Rectangle.
         """
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
-        
+
     def __del__(self):
         """
         Print a farewell message when an instance of Rectangle is deleted.
