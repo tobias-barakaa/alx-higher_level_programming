@@ -4,14 +4,14 @@
 
 
 class MyInt(int):
-    def __eq__(self, other):
         """
         Overrides the == operator to invert its behavior.
         """
-        return int(self) == int(other)
-
-    def __ne__(self, other):
+        def __eq__(self, element):
+        return not super().__eq__(element)
         """
         Overrides the != operator to invert its behavior.
         """
-        return int(self) != int(other)
+
+    def __ne__(self, element):
+        return not super().__ne__(element)
