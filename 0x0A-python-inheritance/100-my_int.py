@@ -1,17 +1,13 @@
 #!/usr/bin/python3
-
-"""function that inherits from int"""
+'''
+Write a class MyInt that inherits from int
+'''
 
 
 class MyInt(int):
-    def __eq__(self, other):
-        """
-        Overrides the == operator to invert its behavior.
-        """
-        return int(self) != int(other)
 
-    def __ne__(self, other):
-        """
-        Overrides the != operator to invert its behavior.
-        """
-        return int(self) == int(other)
+    def __eq__(self, value):
+        return int(self) != int(value)
+
+    def __ne__(self, value):
+        return int(self) == int(value)
