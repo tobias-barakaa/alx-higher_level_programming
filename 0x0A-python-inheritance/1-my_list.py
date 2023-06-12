@@ -6,8 +6,8 @@ inheritance function
 
 
 class MyList(list):
-    def print_sorted(self):
         """
         Prints the list in sorted (ascending) order.
         """
+        def print_sorted(self):
         print(sorted(self))
