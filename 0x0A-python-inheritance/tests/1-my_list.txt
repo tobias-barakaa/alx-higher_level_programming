@@ -1,0 +1,37 @@
+---------------------------------------
+
+--------test for ----1-my_list.txt
+
+>>> MyList = __import__('1-my_list').MyList
+     ...
+>>> my_list = MyList([1, 2, 3])
+>>> print(my_list)
+[1, 2, 3]
+    ...
+
+>>> type(my_list)
+<class '1-my_list.MyList'>
+   ...
+>>> print(my_list)
+[]
+
+>>> my_list = (None)
+   ...
+>>> my_list = (['string','length'], ['width', 'height'])
+   ...
+  
+>>> my_list[0] = 78
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+   ...
+   
+>>> my_list.append(1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'tuple' object has no attribute 'append'
+>>> 
+   ...
+>>> print(my_list)
+(['string', 'length'], ['width', 'height'])
+>>> 
