@@ -8,10 +8,10 @@ class MyInt(int):
         """
         Overrides the == operator to invert its behavior.
         """
-        return super().__ne__(other)
+        return int(self) != int(other)
 
     def __ne__(self, other):
         """
         Overrides the != operator to invert its behavior.
         """
-        return super().__eq__(other)
+        return int(self) == int(other)
