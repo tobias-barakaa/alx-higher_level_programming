@@ -20,4 +20,4 @@ class MyList(list):
         True if the object is an instance of a class that inherited from `a_class`,
         otherwise False.
     """
-    return issubclass(type(obj), a_class) and type(obj) != a_class
+    return isinstance(obj, a_class) and type(obj) != a_class
