@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-def lookup(obj):
+def lookup(object):
     """
     Returns a list of available attributes and methods of an object.
 
@@ -12,4 +12,4 @@ def lookup(obj):
 
     Examples:
     """
-    return dir(obj)
+    return dir(object)
