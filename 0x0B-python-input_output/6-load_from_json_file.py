@@ -1,8 +1,9 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/python3
+"""json file print"""
 import json
 
-def create_object_from_json(filename):
+
+def load_from_json_file(filename):
     """
     Create an object from a JSON file.
 
@@ -14,11 +15,15 @@ def create_object_from_json(filename):
 
     Raises:
         FileNotFoundError: If the specified file is not found.
-        JSONDecodeError: If the JSON data cannot be parsed.
+        ValueError: If the JSON data cannot be parsed.
 
     """
     with open(filename, 'r') as file:
         json_data = file.read()
 
-    obj = json.loads(json_data)
+    try:
+        obj = json.loads(json_data)
+    except ValueError as e:
+        raise ValueError("Error parsing JSON data: {}".format(e))
+
     return obj
