@@ -19,11 +19,4 @@ def load_from_json_file(filename):
 
     """
     with open(filename, 'r') as file:
-        json_data = file.read()
-
-    try:
-        obj = json.loads(json_data)
-    except ValueError as e:
-        raise ValueError("Error parsing JSON data: {}".format(e))
-
-    return obj
+        return json.load(file)
