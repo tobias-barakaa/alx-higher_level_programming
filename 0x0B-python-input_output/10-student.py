@@ -24,6 +24,7 @@ class Student:
             dict: Dictionary representation of the Student instance.
 
         """
-        if isinstance(attrs, list) and all(isinstance(elem, str) for elem in attrs):
+        if isinstance(attrs, list) and \
+                all(isinstance(elem, str) for elem in attrs):
             return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         return self.__dict__
