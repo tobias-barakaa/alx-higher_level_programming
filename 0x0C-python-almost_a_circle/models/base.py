@@ -20,8 +20,10 @@ class Base:
         Initializes a Base object with a unique id.
 
         Args:
-            id (int): Optional id value. If provided, the object is assigned the given id.
-                      If not provided, a unique id is generated for the object.
+            id (int): Optional id
+        value. If provided, the object is assigned the given id.
+                      If not provided, a
+        unique id is generated for the object.
         """
         if id is not None:
             self.id = id
