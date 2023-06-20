@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""class Base function"""
+
 
 class Base:
     """
