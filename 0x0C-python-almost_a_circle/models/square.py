@@ -1,72 +1,63 @@
 #!/usr/bin/python3
-"""function to inherit"""
+
+"""A module for Square class"""
+
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """A Square class"""
+
     def __init__(self, size, x=0, y=0, id=None):
-        """
-        Initializes a Square instance.
-
-        Args:
-            size (int): Size of the square.
-            x (int): X-coordinate of the square's position.
-            y (int): Y-coordinate of the square's position.
-            id (int): Identifier of the square.
-
-        Attributes:
-            size (int): Size of the square.
-            x (int): X-coordinate of the square's position.
-            y (int): Y-coordinate of the square's position.
-            id (int): Identifier of the square.
-        """
+        """Initialize square class"""
+        self.size = size
         super().__init__(size, size, x, y, id)
 
-    def update(self, *args, **kwargs):
-        """
-        Updates the attributes of the Square.
+    @property
+    def size(self):
+        """Retrieve the size"""
+        return self.__width
 
-        Args:
-            *args: Variable-length arguments (no-keyworded arguments).
-                1st argument should be the id attribute.
-                2nd argument should be the size attribute.
-                3rd argument should be the x attribute.
-                4th argument should be the y attribute.
-            **kwargs: Keyworded arguments represented as key/value pairs.
-
-        Notes:
-            If *args exists and is not empty, **kwargs is skipped.
-            Each key in **kwargs represents an attribute to be updated.
-        """
-        if args:
-            attrs = ["id", "size", "x", "y"]
-            for i in range(len(args)):
-                setattr(self, attrs[i], args[i])
-        else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+    @size.setter
+    def size(self, size):
+        """Set the size"""
+        if type(size) != int:
+            raise TypeError("width must be an integer")
+        if size <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = size
+        self.__height = size
 
     def __str__(self):
-        """
-        Returns a string representation of the Square.
+        """Return a string representation of the object"""
+        end_string = "[Square] "
+        end_string += "({}) ".format(self.id)
+        end_string += "{:d}/{:d} - ".format(self.x, self.y)
+        end_string += "{:d}".format(self.size)
+        return end_string
 
-        Returns:
-            str: String representation of the Square.
-        """
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
-    def __init__(self, size, x=0, y=0, id=None):
-        super().__init__(size, size, x, y, id)
+    def update(self, *args, **kwargs):
+        """Assigns key/value arguments to the attributes"""
+        try:
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+            self.y = args[3]
+        except IndexError:
+            pass
+
+        if "id" in kwargs:
+            self.id = kwargs["id"]
+
+        if "size" in kwargs:
+            self.size = kwargs["size"]
+
+        if "x" in kwargs:
+            self.x = kwargs["x"]
+
+        if "y" in kwargs:
+            self.y = kwargs["y"]
 
     def to_dictionary(self):
-        """
-        Returns the dictionary representation of the Square.
-
-        Returns:
-            dict: Dictionary representation of the Square.
-        """
-        return {
-            "id": self.id,
-            "size": self.width,
-            "x": self.x,
-            "y": self.y
-        }
+        """Return a dictionary representation of the object"""
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
