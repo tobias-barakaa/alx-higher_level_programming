@@ -1,46 +1,42 @@
 #!/usr/bin/python3
+"""Student => JSON"""
+
 
 class Student:
-    """Defines a student."""
+    """Student class definition"""
 
     def __init__(self, first_name, last_name, age):
-        """
-        Initializes a Student instance.
-
-        Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
-
-        """
+        """iinitializater"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
         """
-        Retrieves a dictionary representation of a Student instance.
-
-        Args:
-            attrs (list of str, optional): List of attribute names.
-                If provided, only attributes contained in this list will be retrieved.
-                Otherwise, all attributes will be retrieved.
-
-        Returns:
-            dict: A dictionary representation of the Student instance.
-
+        Method to get a dictionary rep:
         """
-        if isinstance(attrs, list) and all(isinstance(elem, str) for elem in attrs):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict__
+
+        result = {}
+
+        if attrs is None:
+            return (self.__dict__)
+
+        for key in attrs:
+            """If not find key in the class return None"""
+            value = self.__dict__.get(key)
+            if value is not None:
+                result[key] = value
+        return (result)
 
     def reload_from_json(self, json):
-        """
-        Reloads attributes of the Student instance from a JSON dictionary.
+        """Method to replaces all attributes """
 
-        Args:
-            json (dict): A dictionary containing attribute-value pairs.
+        dict_new = self.__dict__
 
-        """
         for key, value in json.items():
-            setattr(self, key, value)
+            if (dict_new.get(key) == self.first_name):
+                self.first_name = value
+            elif (dict_new.get(key) == self.last_name):
+                self.last_name = value
+            elif (dict_new.get(key) == self.age):
+                self.age = value
