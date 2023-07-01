@@ -1,21 +1,24 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+"""addding loading and saving"""
 
-import sys
-from os import path
-from save_to_json_file import save_to_json_file
-from load_from_json_file import load_from_json_file
 
-filename = 'add_item.json'
+from sys import argv
+from os.path import exists
 
-# Load existing list from the file if it exists, or create an empty list
-if path.exists(filename):
-    my_list = load_from_json_file(filename)
+tofile_json = __import__("5-save_to_json_file").tofile_json
+jso_loading = __import__("6-load_from_json_file").jso_loading
+
+namefile = "add_item.json"
+argc = len(argv)
+
+new_list = []
+
+if exists(namefile):
+    new_list = jso_loading(namefile)
+
+if (argc == 1):
+    tofile_json([], namefile)
 else:
-    my_list = []
-
-# Add command line arguments to the list
-my_list.extend(sys.argv[1:])
-
-# Save the updated list to the file
-save_to_json_file(my_list, filename)
-
+    for i in range(1, argc):
+        new_list.append(argv[i])
+    tofile_json(new_list, namefile)
