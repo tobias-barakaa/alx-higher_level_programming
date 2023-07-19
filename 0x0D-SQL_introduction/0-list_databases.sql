@@ -1,2 +1,2 @@
---command to list databases
+--command to list all databases in mysql.
 SHOW DATABASES;
