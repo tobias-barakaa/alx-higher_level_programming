@@ -1,5 +1,5 @@
 -- List all the cities of California without using JOIN
-SELECT *
+SELECT id, name
 FROM cities
 WHERE state_id = (
     SELECT id
@@ -7,4 +7,3 @@ WHERE state_id = (
     WHERE name = 'California'
 )
 ORDER BY id;
-
