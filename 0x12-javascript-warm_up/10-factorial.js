@@ -1,15 +1,15 @@
 #!/usr/bin/node
 
-const n = parseInt(process.argv[2]);
+const a = parseInt(process.argv[2]);
 
-function factorial (n) {
-  if (Number.isNaN(n) || n === 0) {
+function factorial (a) {
+  if (Number.isNaN(a) || a === 0) {
     return (1);
   }
-  if (n < 0) {
+  if (a < 0) {
     return (-1);
   }
-  return (n * factorial(n - 1));
+  return (a * factorial(a - 1));
 }
-const fact = factorial(n)
+const fact = factorial(n);
 console.log(fact);
