@@ -7,8 +7,8 @@ if (!isNaN(arguments)) {
 } else {
     const isNumber = Number(arguments);
     if (!isNaN(isNumber)) {
-        console.log("My number:", isNumber);
+        console.log('My number:', isNumber);
     } else {
-        console.log("Not a number");
+        console.log('Not a number');
     }
 }
