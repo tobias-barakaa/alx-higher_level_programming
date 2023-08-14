@@ -3,5 +3,5 @@
 if (!process.argv[2]) {
     console.log("No argument");
 } else {
-    console.log(arg);
+    console.log(process.argv[2]);
 }
