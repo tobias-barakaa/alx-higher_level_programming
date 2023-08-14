@@ -12,4 +12,5 @@ function factorial (a) {
   return (a * factorial(a - 1));
 }
 
-console.log(factorial(a));
+const fact = factorial(a);
+console.log(fact);
