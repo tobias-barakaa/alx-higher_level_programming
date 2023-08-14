@@ -6,7 +6,7 @@ if (!isNaN(args)) {
   for (let i = 0; i < args; i++) {
      let row = "";
      for (let j = 0; j < args; j++) {
-          row += "x";
+          row += "X";
       }
     console.log(row);
   }
