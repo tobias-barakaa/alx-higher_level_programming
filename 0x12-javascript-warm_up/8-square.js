@@ -2,7 +2,7 @@
 
 const args = parseInt(process.argv[2]);
 
-if (args) {
+if (!isNaN(args)) {
   for (let i = 0; i < args; i++) {
      let row = "";
      for (let j = 0; j < args; j++) {
