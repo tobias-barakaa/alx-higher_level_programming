@@ -4,9 +4,9 @@ const args = parseInt(process.argv[2]);
 
 if (!isNaN(args)) {
   for (let i = 0; i < args; i++) {
-     let row = "";
+     let row = '';
      for (let j = 0; j < args; j++) {
-          row += "X";
+          row += 'X';
       }
     console.log(row);
   }
