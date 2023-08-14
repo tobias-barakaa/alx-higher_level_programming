@@ -1,7 +1,8 @@
 #!/usr/bin/node
 
 const arrVar = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
-for(let i = 0; i < arrVar.length; i++)
+const len = arrVar.length
+for (let i = 0; i < len; i++)
 {
 console.log(arrVar[i]);
 }
