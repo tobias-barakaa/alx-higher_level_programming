@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// class object Rectangle and the constructor with width and height;
+// empty class object Rectangle and the constructor with width and height;
 class Rectangle {
   constructor (w, h) {
     if (w >= 0 && h >= 0) {
@@ -7,8 +7,9 @@ class Rectangle {
       this.height = h;
     }
   }
-  
-  print () {
+}
+
+print () {
     for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
     }
