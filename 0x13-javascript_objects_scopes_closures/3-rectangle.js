@@ -1,8 +1,8 @@
 #!/usr/bin/node
-// create class `Rectangle` w/ input filter, print instance method
+// class object Rectangle and the constructor with width and height;
 class Rectangle {
   constructor (w, h) {
-    if (w > 0 && h > 0) {
+    if (w >= 0 && h >= 0) {
       this.width = w;
       this.height = h;
     }
@@ -10,11 +10,7 @@ class Rectangle {
   
   print () {
     for (let i = 0; i < this.height; i++) {
-      let row = '';
-      for (let j = 0; j < this.width; j++) {
-          row += 'X';
-      }
-     console.log(row);
+      console.log('X'.repeat(this.width));
     }
   }
 }
