@@ -1,5 +1,5 @@
 #!/usr/bin/node
-//empty class object(Rectangle);
+// empty class object(Rectangle);
 
 class Rectangle {
   
