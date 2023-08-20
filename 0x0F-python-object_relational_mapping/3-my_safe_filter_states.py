@@ -62,11 +62,11 @@ def main():
         print(row)
 
     # Close the cursor object.
-    cursor.close()
-
-    
+    cursor.close()    
    # Close the connection to the database.
     connection.close()
 
+
 if __name__ == "__main__":
     main()
+
