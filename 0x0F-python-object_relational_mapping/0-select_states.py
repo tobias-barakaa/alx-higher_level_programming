@@ -37,8 +37,7 @@ def main():
     cursor = connection.cursor()
 
     # Execute the SQL query to select all states.
-    query = "SELECT * FROM states ORDER BY id ASC"
-    cursor.execute(query)
+    cursor.execute("""SELECT * FROM states ORDER BY states.id ASC""")
 
     # Iterate over the results and print each row.
     rows = cursor.fetchall()
