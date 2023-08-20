@@ -1,25 +1,30 @@
 #!/usr/bin/python3
 
 """
-a script that lists all states with a name starting with N
+This script lists all values in the `states` table of the `hbtn_0e_0_usa` database
+where `name` matches the argument `state name searched`.
 
-The script takes three arguments:
+The script takes four arguments:
     * The MySQL username
     * The MySQL password
     * The database name
+    * The state name to search for
 
-The script connects to the MySQL database on the default host.
+The script connects to the MySQL database on the default host (localhost) and port (3306).
 
-The script prints the results of the query to the console.
+The script uses the `sys` module to get the MySQL username, password, and database name from the command line arguments.
+
+The script uses the `MySQLdb` module to execute the SQL query `SELECT * FROM states WHERE name = %s ORDER BY id`.
+
+The results of the query are then printed to the console.
 """
 
 import sys
 import MySQLdb
 
-
 def main():
     """
-    This function connects to the MySQL database and lists all states.
+    This function connects to the MySQL database and lists all values in the states table where name matches the argument.
     """
 
     # Get the MySQL username from the command line arguments.
@@ -30,8 +35,9 @@ def main():
 
     # Get the database name from the command line arguments.
     database = sys.argv[3]
-    # name to search
-    query = sys.argv[4]
+
+    # Get the state name to search for from the command line arguments.
+    state_name = sys.argv[4]
 
     # Connect to the MySQL database.
     connection = MySQLdb.connect(user=username, passwd=password, db=database)
@@ -39,9 +45,9 @@ def main():
     # Create a cursor object.
     cursor = connection.cursor()
 
-    # Execute the SQL query to select all states.
-    cursor.execute("SELECT * FROM states WHERE name = %s\
-            ORDER BY states.id ASC", (query), )
+    # Execute the SQL query.
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id"
+    cursor.execute(query, (state_name,))
 
     # Iterate over the results and print each row.
     rows = cursor.fetchall()
@@ -53,7 +59,6 @@ def main():
 
     # Close the connection to the database.
     connection.close()
-
 
 if __name__ == "__main__":
     main()
