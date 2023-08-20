@@ -12,9 +12,11 @@ The script takes four arguments:
 
 The script connects to the MySQL database on the default host (localhost) and port (3306).
 
-The script uses the `sys` module to get the MySQL username, password, and database name from the command line arguments.
+The script uses the `sys` module to get the MySQL username, password,
+and database name from the command line arguments.
 
-The script uses the `MySQLdb` module to execute the SQL query `SELECT * FROM states WHERE name = %s ORDER BY id`.
+The script uses the `MySQLdb` module to execute the SQL query `SELECT *
+FROM states WHERE name = %s ORDER BY id`.
 
 The results of the query are then printed to the console.
 """
@@ -24,7 +26,9 @@ import MySQLdb
 
 def main():
     """
-    This function connects to the MySQL database and lists all values in the states table where name matches the argument.
+    This function connects to the MySQL database and lists all values in the
+    states table
+    where name matches the argument.
     """
 
     # Get the MySQL username from the command line arguments.
