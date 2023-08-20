@@ -30,7 +30,7 @@ def main():
 
     # Get the database name from the command line arguments.
     database = sys.argv[3]
-    #name to search
+    # name to search
     query = sys.argv[4]
 
     # Connect to the MySQL database.
@@ -40,8 +40,8 @@ def main():
     cursor = connection.cursor()
 
     # Execute the SQL query to select all states.
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id"
-                                                           .format(query))
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY\
+                              '{}' ORDER BY id" .format(query))
 
     # Iterate over the results and print each row.
     rows = cursor.fetchall()
