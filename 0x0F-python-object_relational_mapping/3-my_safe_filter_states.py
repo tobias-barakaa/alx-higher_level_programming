@@ -27,6 +27,7 @@ The results of the query are then printed to the console.
 import sys
 import MySQLdb
 
+
 def main():
     """
     This function connects to the MySQL database and lists all values in the
@@ -62,11 +63,10 @@ def main():
         print(row)
 
     # Close the cursor object.
-    cursor.close()    
-   # Close the connection to the database.
+    cursor.close()
+    # Close the connection to the database.
     connection.close()
 
 
 if __name__ == "__main__":
     main()
-
