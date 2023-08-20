@@ -8,13 +8,14 @@ The script takes three arguments:
     * The MySQL password
     * The database name
 
-The script connects to the MySQL database on the default host (localhost) and port (3306).
+The script connects to the MySQL database on the default host.
 
 The script prints the results of the query to the console.
 """
 
 import sys
 import MySQLdb
+
 
 def main():
     """
@@ -49,6 +50,7 @@ def main():
 
     # Close the connection to the database.
     connection.close()
+
 
 if __name__ == "__main__":
     main()
