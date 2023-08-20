@@ -41,7 +41,7 @@ def main():
 
     # Execute the SQL query to select all states.
     cursor.execute("SELECT * FROM states WHERE name = %s\
-            ORDER BY states.id ASC", query)
+            ORDER BY states.id ASC", (query), )
 
     # Iterate over the results and print each row.
     rows = cursor.fetchall()
