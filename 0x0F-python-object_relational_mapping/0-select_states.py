@@ -19,7 +19,6 @@ def main():
     mysql_username, mysql_password, database_name = sys.argv[1], sys.argv[2], sys.argv[3]
 
     try:
-        # Connect to the MySQL server running on localhost at port 3306
         db = MySQLdb.connect(
             user=mysql_username,
             passwd=mysql_password,
@@ -36,6 +35,11 @@ def main():
 
         cursor.close()
         db.close()
+        
+    except MySQLdb.Error as e:
+        print("MySQL Error {}: {}".format(e.args[0], e.args[1]))
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
