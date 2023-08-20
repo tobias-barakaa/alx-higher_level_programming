@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-This script lists all values in the `states` table of the `hbtn_0e_0_usa` database
+This script lists all values in the `states` table of the
+`hbtn_0e_0_usa` database
 where `name` matches the argument `state name searched`.
 
 The script takes four arguments:
@@ -10,7 +11,8 @@ The script takes four arguments:
     * The database name
     * The state name to search for
 
-The script connects to the MySQL database on the default host (localhost) and port (3306).
+The script connects to the MySQL database on the
+default host (localhost) and port (3306).
 
 The script uses the `sys` module to get the MySQL username, password,
 and database name from the command line arguments.
@@ -20,6 +22,7 @@ FROM states WHERE name = %s ORDER BY id`.
 
 The results of the query are then printed to the console.
 """
+
 
 import sys
 import MySQLdb
@@ -61,7 +64,8 @@ def main():
     # Close the cursor object.
     cursor.close()
 
-    # Close the connection to the database.
+    
+   # Close the connection to the database.
     connection.close()
 
 if __name__ == "__main__":
