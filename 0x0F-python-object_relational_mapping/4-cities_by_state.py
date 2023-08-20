@@ -58,7 +58,7 @@ def main():
                  FROM cities c INNER JOIN states s \
                  ON c.state_id = s.id \
                  ORDER BY c.id")
-    cursor.execute(query, (state_name,))
+    cursor.execute(query)
 
     # Iterate over the results and print each row.
     rows = cursor.fetchall()
