@@ -45,7 +45,7 @@ def main():
     database = sys.argv[3]
 
     # Get the state name to search for from the command line arguments.
-    state_name = sys.argv[4]
+    city_name = sys.argv[4]
 
     # Connect to the MySQL database.
     connection = MySQLdb.connect(user=username, passwd=password, db=database)
@@ -55,7 +55,7 @@ def main():
 
     # Execute the SQL query.
     query = "SELECT * FROM states WHERE name = %s ORDER BY id"
-    cursor.execute(query, (state_name,))
+    cursor.execute(query, (city_name,))
 
     # Iterate over the results and print each row.
     rows = cursor.fetchall()
