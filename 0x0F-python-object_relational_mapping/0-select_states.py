@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    query = ("SELECT * FROM states ORDER BY states.id ASC")
+    query = ("""SELECT * FROM states ORDER BY states.id ASC""")
     cursor.execute(query)
 
     rows = cursor.fetchall()
