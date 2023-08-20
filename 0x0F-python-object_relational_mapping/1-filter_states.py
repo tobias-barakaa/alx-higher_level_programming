@@ -38,7 +38,7 @@ def main():
     cursor = connection.cursor()
 
     # Execute the SQL query to select all states.
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
 
     # Iterate over the results and print each row.
     rows = cursor.fetchall()
