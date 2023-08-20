@@ -1,56 +1,39 @@
-#!/usr/bin/python3
-
+#!/usr/bin/env python3
 """
-a script that lists all states with a name starting with N
-
-The script takes three arguments:
-    * The MySQL username
-    * The MySQL password
-    * The database name
-
-The script connects to the MySQL database on the default host.
-
-The script prints the results of the query to the console.
+Script that displays all values in the states table of hbtn_0e_0_usa where name matches the argument.
 """
 
-import sys
 import MySQLdb
-
-
-def main():
-    """
-    This function connects to the MySQL database and lists all states.
-    """
-
-    # Get the MySQL username from the command line arguments.
-    username = sys.argv[1]
-
-    # Get the MySQL password from the command line arguments.
-    password = sys.argv[2]
-
-    # Get the database name from the command line arguments.
-    database = sys.argv[3]
-
-    # Connect to the MySQL database.
-    connection = MySQLdb.connect(user=username, passwd=password, db=database)
-
-    # Create a cursor object.
-    cursor = connection.cursor()
-
-    # Execute the SQL query to select all states.
-    cursor.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC")
-
-    # Iterate over the results and print each row.
-    rows = cursor.fetchall()
-    for row in rows:
-        print(row)
-
-    # Close the cursor object.
-    cursor.close()
-
-    # Close the connection to the database.
-    connection.close()
-
+import sys
 
 if __name__ == "__main__":
-    main()
+    # Check if all four arguments are provided
+    if len(sys.argv) != 5:
+        print("Usage: {} <mysql username> <mysql password> <database name> <state name>".format(sys.argv[0]))
+        sys.exit(1)
+
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
+
+    # Connect to the MySQL server
+    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+
+    # Create a cursor object
+    cursor = db.cursor()
+
+    # Create and execute the query to fetch states matching the given name
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cursor.execute(query, (state_name,))
+
+    # Fetch all the results
+    results = cursor.fetchall()
+
+    # Display the results
+    for row in results:
+        print(row)
+
+    # Close the cursor and connection
+    cursor.close()
+    db.close()
