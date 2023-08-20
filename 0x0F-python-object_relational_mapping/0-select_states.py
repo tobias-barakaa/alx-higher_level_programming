@@ -1,32 +1,55 @@
 #!/usr/bin/python3
+
 """
-This script lists all states from the hbtn_0e_0_usa database.
-It takes three command-line arguments:
-    - MySQL username
-    - MySQL password
-    - Database name
-The script connects to the MySQL server on the default host (localhost) and port (3306).
+This script lists all states from the database hbtn_0e_0_usa.
+
+The script takes three arguments:
+    * The MySQL username
+    * The MySQL password
+    * The database name
+
+The script connects to the MySQL database on the default host (localhost) and port (3306).
+
+The script prints the results of the query to the console.
 """
 
-if __name__ == "__main__":
-    from sys import argv
-    import MySQLdb
+import sys
+import MySQLdb
 
-    username = argv[1]
-    password = argv[2]
-    database = argv[3]
+def main():
+    """
+    This function connects to the MySQL database and lists all states.
+    """
 
-    db = MySQLdb.connect(user=username, passwd=password, db=database)
+    # Get the MySQL username from the command line arguments.
+    username = sys.argv[1]
 
-    cursor = db.cursor()
+    # Get the MySQL password from the command line arguments.
+    password = sys.argv[2]
 
-    query = ("""SELECT * FROM states ORDER BY states.id ASC""")
+    # Get the database name from the command line arguments.
+    database = sys.argv[3]
+
+    # Connect to the MySQL database.
+    connection = MySQLdb.connect(user=username, passwd=password, db=database)
+
+    # Create a cursor object.
+    cursor = connection.cursor()
+
+    # Execute the SQL query to select all states.
+    query = "SELECT * FROM states ORDER BY id ASC"
     cursor.execute(query)
 
+    # Iterate over the results and print each row.
     rows = cursor.fetchall()
-
     for row in rows:
         print(row)
 
+    # Close the cursor object.
     cursor.close()
-    db.close()
+
+    # Close the connection to the database.
+    connection.close()
+
+if __name__ == "__main__":
+    main()
