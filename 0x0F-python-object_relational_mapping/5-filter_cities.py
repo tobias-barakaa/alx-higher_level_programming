@@ -16,7 +16,8 @@ import MySQLdb
 if __name__ == "__main__":
     # Check if all four arguments are provided
     if len(sys.argv) != 5:
-        print("Usage: {} <mysql username> <mysql password> <database name> <state name>".format(sys.argv[0]))
+        print("Usage: {} <mysql username> <mysql password>\
+        <database name> <state name>".format(sys.argv[0]))
         sys.exit(1)
 
     username = sys.argv[1]
@@ -29,7 +30,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Create and execute the query to fetch cities for the given state
-    query = "SELECT name FROM cities WHERE state_id IN (SELECT id FROM states WHERE name = %s) ORDER BY id"
+    query = "SELECT name FROM cities WHERE state_id IN\
+    (SELECT id FROM states WHERE name = %s) ORDER BY id"
     cursor.execute(query, (state,))
 
     # Fetch all the results
