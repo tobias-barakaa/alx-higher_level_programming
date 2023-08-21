@@ -11,7 +11,8 @@ from model_state import Base, State
 if __name__ == "__main__":
     # Check if all three arguments are provided
     if len(sys.argv) != 4:
-        print("Usage: {} <mysql username> <mysql password> <database name>".format(sys.argv[0]))
+        print("Usage: {} <mysql username> <mysql password>\
+        <database name>".format(sys.argv[0]))
         sys.exit(1)
 
     username = sys.argv[1]
@@ -19,7 +20,8 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     # Create the engine and establish the session
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(username, password, database), pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'\
+        .format(username, password, database), pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
 
