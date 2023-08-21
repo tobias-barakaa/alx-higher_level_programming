@@ -8,18 +8,24 @@ The script takes three arguments:
     * The MySQL password
     * The database name
 
-The script connects to the MySQL database on the default host (localhost) and port (3306).
+The script connects to the MySQL database on the default
+host (localhost) and port (3306).
 
-The script uses the `sys` module to get the MySQL username, password, and database name from the command line arguments.
+The script uses the `sys` module to get the MySQL username,
+password, and database name from the command line arguments.
 
-The script uses the `MySQLdb` module to execute the SQL query `SELECT c.id, c.name, s.name FROM cities c INNER JOIN states s ON c.state_id = s.id ORDER BY c.id`.
+The script uses the `MySQLdb` module to execute the SQL query
+`SELECT c.id, c.name, s.name FROM cities c INNER JOIN states s 
+ ON c.state_id = s.id ORDER BY c.id`.
 
 The results of the query are then printed to the console.
 
 Here is a breakdown of the SQL query:
 
-* `SELECT c.id, c.name, s.name`: This selects the `id`, `name`, and `name` columns from the `cities` and `states` tables.
-* `FROM cities c INNER JOIN states s`: This joins the `cities` and `states` tables on the `state_id` column.
+* `SELECT c.id, c.name, s.name`: This selects the `id`, `name`,
+and `name` columns from the `cities` and `states` tables.
+* `FROM cities c INNER JOIN states s`: This joins the `cities`
+and `states` tables on the `state_id` column.
 * `ON c.state_id = s.id`: This specifies the join condition.
 * `ORDER BY c.id`: This sorts the results by the `id` column.
 """
@@ -27,9 +33,11 @@ Here is a breakdown of the SQL query:
 import sys
 import MySQLdb
 
+
 def main():
     """
-    This function connects to the MySQL database and lists all cities from the cities table.
+    This function connects to the MySQL database and
+    lists all cities from the cities table.
     """
 
     # Get the MySQL username from the command line arguments.
@@ -49,7 +57,8 @@ def main():
 
     # Execute the SQL query.
     query = "SELECT c.id, c.name,\
-    s.name FROM cities c INNER JOIN states s ON c.state_id = s.id ORDER BY c.id"
+    s.name FROM cities c INNER JOIN\
+    states s ON c.state_id = s.id ORDER BY c.id"
     cursor.execute(query)
 
     # Iterate over the results and print each row.
@@ -62,6 +71,7 @@ def main():
 
     # Close the connection to the database.
     connection.close()
+
 
 if __name__ == "__main__":
     main()
