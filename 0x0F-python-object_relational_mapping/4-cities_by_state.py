@@ -15,8 +15,8 @@ The script uses the `sys` module to get the MySQL username,
 password, and database name from the command line arguments.
 
 The script uses the `MySQLdb` module to execute the SQL query
-`SELECT c.id, c.name, s.name FROM cities c INNER JOIN states s 
- ON c.state_id = s.id ORDER BY c.id`.
+`SELECT c.id, c.name, s.name FROM cities c INNER JOIN states s
+ON c.state_id = s.id ORDER BY c.id`.
 
 The results of the query are then printed to the console.
 
