@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Check if the URL argument is provided
 if [ $# -ne 1 ]; then
