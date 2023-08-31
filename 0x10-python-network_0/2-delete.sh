@@ -1,2 +1,2 @@
 #!/bin/bash
-curl -X DELETE "$url"
+curl -s -X DELETE "$1"
