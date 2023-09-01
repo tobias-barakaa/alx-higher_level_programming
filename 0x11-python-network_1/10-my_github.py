@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-a Python script that takes your GitHub credentials 
+a Python script that takes your GitHub credentials
 (username and password) and uses the GitHub
 API to display your id
 """
@@ -25,7 +25,6 @@ headers = {
 try:
     # Send a GET request to the GitHub API
     response = requests.get(url, headers=headers)
-    
     # Check if the request was successful
     if response.status_code == 200:
         user_info = response.json()
