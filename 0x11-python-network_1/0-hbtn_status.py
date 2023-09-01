@@ -14,7 +14,3 @@ try:
         print(f"    - type: {type(response_data)}")
         print(f"    - content: {response_data}")
         print(f"    - utf8 content: {response_data.decode('utf-8')}")
-
-except urllib.error.URLError as e:
-    print(f"Error: {e}")
-
