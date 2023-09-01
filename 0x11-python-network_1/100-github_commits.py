@@ -12,11 +12,11 @@ if __name__ == "__main__":
     owner_name = sys.argv[2]
 
     # GitHub API URL for commits
-    url = f"https://api.github.com/repos/{owner_name}/{repository_name}/commits"
+    ur = f"https://api.github.com/repos/{owner_name}/{repository_name}/commits"
 
     try:
         # Send GET request to the GitHub API
-        response = requests.get(url)
+        response = requests.get(ur)
         response.raise_for_status()  # Raise an exception if the request fails
 
         # Parse the JSON response
@@ -31,4 +31,3 @@ if __name__ == "__main__":
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
         sys.exit(1)
-
