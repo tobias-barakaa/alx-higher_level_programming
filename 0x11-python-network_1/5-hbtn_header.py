@@ -14,7 +14,6 @@ url = sys.argv[1]
 try:
     # Send a GET request to the specified URL
     response = requests.get(url)
-    
     # Raise an exception for HTTP errors (4xx, 5xx)
     response.raise_for_status()
 
