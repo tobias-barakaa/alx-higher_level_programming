@@ -27,7 +27,6 @@ try:
     with urllib.request.urlopen(req) as response:
         # Read and decode the response body in utf-8
         body = response.read().decode('utf-8')
-        
         # Display the decoded response body
         print(body)
 except urllib.error.URLError as e:
