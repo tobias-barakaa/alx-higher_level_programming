@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-a Python script that takes in a letter and sends a POST request 
+a Python script that takes in a letter and sends a POST request
 to http://0.0.0.0:5000/search_user with the letter as a parameter.
 """
 import requests
@@ -18,7 +18,6 @@ data = {'q': q}
 try:
     # Send a POST request to the specified URL with the letter parameter
     response = requests.post("http://0.0.0.0:5000/search_user", data=data)
-    
     # Try to parse the response JSON
     user_info = response.json()
 
