@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Find a peak element in a list of unsorted integers using binary search"""
+"""function to Find a peak element in unsorted list"""
 
 
 def find_peak(list_of_integers):
@@ -18,12 +18,17 @@ def find_peak(list_of_integers):
     greater than its neighboring elements (if they exist). The function operates on
     the assumption that there may be more than one peak in the list.
 
-    1. Check if the input list is empty. If it is, return None to indicate an empty list.
-    2. Initialize the search range with 'low' as the first index and 'high' as the last index.
-    3. Perform binary search to iteratively narrow down the search range until a peak is found.
+    1. Check if the input list is empty. If it is,
+    return None to indicate an empty list.
+    2. Initialize the search range with 'low' 
+    as the first index and 'high' as the last index.
+    3. Perform binary search to iteratively narrow down/
+    the search range until a peak is found.
     4. Calculate the midpoint 'mid' of the current search range.
-    5. Compare the element at 'mid' with the element at 'mid + 1' to determine the direction of the search:
-       - If 'list_of_integers[mid] > list_of_integers[mid + 1]', update 'high' to 'mid'.
+    5. Compare the element at 'mid' with the element at 'mid + 1'
+    to determine the direction of the search:
+       - If 'list_of_integers[mid] >/
+       list_of_integers[mid + 1]', update 'high' to 'mid'.
        - If not, update 'low' to 'mid + 1'.
     6. Repeat steps 4 and 5 until 'low' and 'high' converge to a peak.
     7. Return the peak element found in the list.
@@ -34,7 +39,8 @@ def find_peak(list_of_integers):
     >>> find_peak([4, 2, 1, 2, 3, 1])
     4
 
-    Note: This function has a time complexity of O(log(n)), making it efficient for large lists.
+    Note: This function has a time complexity of O(log(n)),
+    making it efficient for large lists.
 
     """
     # Check if the list is empty
@@ -50,7 +56,7 @@ def find_peak(list_of_integers):
         # Calculate the midpoint of the current search range
         mid = (low + high) // 2
 
-        # Check if the element at the midpoint is greater than the next element
+        # Check if the element at the midpoint is greater than
         if list_of_integers[mid] > list_of_integers[mid + 1]:
             # If it is, update the high end of the search range
             high = mid
