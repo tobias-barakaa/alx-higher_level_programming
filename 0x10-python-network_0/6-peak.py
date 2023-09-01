@@ -10,13 +10,18 @@ def find_peak(list_of_integers):
     - list_of_integers (list): A list of unsorted integers.
 
     Returns:
-    - int or None: The peak element found in the list, or None if the list is empty.
+    - int or None: The peak element found in the list, or 
+    None if the list is empty.
 
     Algorithm:
-    This function uses a binary search algorithm to efficiently find a peak element
-    in the given list of integers. A peak element is defined as an element that is
-    greater than its neighboring elements (if they exist). The function operates on
-    the assumption that there may be more than one peak in the list.
+    This function uses a binary search algorithm to 
+    efficiently find a peak element
+    in the given list of integers. 
+    A peak element is defined as an element that is
+    greater than its neighboring elements 
+    (if they exist). The function operates on
+    the assumption that there may be more than
+    one peak in the list.
 
     1. Check if the input list is empty. If it is,
     return None to indicate an empty list.
