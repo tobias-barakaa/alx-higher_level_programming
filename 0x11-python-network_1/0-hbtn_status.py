@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-""" Python script that fetches"""
+"""a Python script that fetches"""
 import urllib.request
 
-url = 'https://alx-intranet.hbtn.io/status'
+url = "https://alx-intranet.hbtn.io/status"
 
 try:
     with urllib.request.urlopen(url) as response:
-        # Read the response body
-        response_data = response.read()
-
-        # Display the response information
+        body = response.read()
         print("Body response:")
-        print(f"    - type: {type(response_data)}")
-        print(f"    - content: {response_data}")
-        print(f"    - utf8 content: {response_data.decode('utf-8')}")
+        print("\t- type:", type(body))
+        print("\t- content:", body)
+        print("\t- utf8 content:", body.decode('utf-8'))
+except Exception as e:
+    print("Error:", e)
