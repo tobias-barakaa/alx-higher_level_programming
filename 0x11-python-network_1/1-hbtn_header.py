@@ -17,4 +17,3 @@ try:
             print(x_request_id)
 except urllib.error.URLError as e:
     print("Error:", e)
-
