@@ -16,7 +16,6 @@ try:
     with urllib.request.urlopen(url) as response:
         # Read and decode the response body in utf-8
         body = response.read().decode('utf-8')
-        
         # Display the decoded response body
         print(body)
 except urllib.error.HTTPError as e:
