@@ -1,5 +1,14 @@
 #!/usr/bin/node
+
 const fs = require('fs');
-fs.readFile(process.argv[2], 'utf8', function (error, content) {
-  console.log(error || content);
+
+// Check if the correct number of command line arguments is provided
+const filePath = process.argv[2];
+
+fs.readFile(filePath, 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+  } else {
+    process.stdout.write(data);
+  }
 });
