@@ -1,12 +1,5 @@
 #!/usr/bin/node
 
-/**
- * Read and print the content of a file.
- *
- * Usage: ./0-readme.js <file_path>
- * Example: ./0-readme.js cisfun
- */
-
 const fs = require('fs');
 
 // Check if the correct number of command line arguments is provided
