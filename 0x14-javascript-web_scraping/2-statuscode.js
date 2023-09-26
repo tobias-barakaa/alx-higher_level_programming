@@ -8,5 +8,10 @@ const url = process.argv[2];
 
 // Use the 'request' module to make an HTTP request to the provided URL
 request(url, (err, response) => {
+  if (err) {
+    console.log(err)
+  }
+  else {
   console.log("Code :", response.statusCode);
+  }
 }
