@@ -6,6 +6,6 @@ request.get(url, (err, response) => {
     // Log an informative error message
     console.log(err.message);
   } else {
-    console.log('code: ', response.statusCode);
+    console.log('code:', response.statusCode);
   }
 });
