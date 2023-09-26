@@ -9,5 +9,7 @@ const url = process.argv[2];
 request.get(url, (err, response) => {
   if (err) {
     console.log(err);
-    return;
+  } else {
+  console.log("code: ", response.statusCode);
   }
+}
