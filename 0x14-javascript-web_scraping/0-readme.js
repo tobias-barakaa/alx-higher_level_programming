@@ -11,4 +11,4 @@ const filePath = process.argv[2];
     } else {
       process.stdout.write(data);
     }
-  };
+  });
