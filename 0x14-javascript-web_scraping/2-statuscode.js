@@ -7,12 +7,12 @@ const request = require("request");
 const url = process.argv[2];
 
 // Use the 'request' module to make an HTTP request to the provided URL
-request(url, (err, response) => {
+request.get(url, (err, response) => {
   if (err) {
     // If there is an error, log the error message
-    console.error(err.message);
+    console.log(err);
   } else {
     // If the request is successful, log the HTTP status code
-    console.log(`HTTP Status Code: ${response.statusCode}`);
+    console.log(`Code: ${response.statusCode}`);
   }
 });
