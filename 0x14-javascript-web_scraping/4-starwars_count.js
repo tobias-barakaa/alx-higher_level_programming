@@ -17,7 +17,7 @@ request(apiUrl, (error, response, body) => {
   // Check if the response status code is 200 (OK)
   if (response.statusCode === 200) {
     try {
-      const filmsData = JSON.parse(body);
+      const filmsData = JSON.parse(body).results;
 
       // Initialize a count variable
       let count = 0;
