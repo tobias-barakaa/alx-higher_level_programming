@@ -3,7 +3,6 @@ const request = require('request');
 // Extract the API URL from the command line argument
 const apiUrl = process.argv[2];
 // Character ID for Wedge Antilles
-const characterId = 18;
 // Make a GET request to the API
 request(apiUrl, (error, response, body) => {
   if(error)
@@ -21,8 +20,8 @@ request(apiUrl, (error, response, body) => {
 
       // Loop through the films and count the occurrences of Wedge Antilles
       for (const film of filmsData) {
-        if (film.characters.includes(`https://swapi-api.alx-tools.com/api/films/${characterId}`)) {
-          count += 1;
+        if (film.characters.includes('/18/')) {
+          count ++;
         }
       }
 
