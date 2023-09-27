@@ -2,12 +2,6 @@
 
 const request = require('request');
 
-// Check if the movie ID is provided
-if (!process.argv[2]) {
-  console.error('Error: Please provide a movie ID as the first command line argument.');
-  process.exit(1);
-}
-
 // Get the movie ID from the command line arguments
 const movieId = process.argv[2];
 
@@ -15,37 +9,50 @@ const movieId = process.argv[2];
 const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
 
 // Send an HTTP GET request to the API
-request(apiUrl, { json: true }, async (error, response, filmData) => {
+request(apiUrl, async (error, response, body) => {
   if (error) {
     console.error(error);
     process.exit(1);
   }
 
+  // Check if the response status code is 200 OK
+  if (response.statusCode !== 200) {
+    console.error(response.statusCode);
+    process.exit(1);
+  }
+
+  // Parse the JSON response from the API
+  const movieData = JSON.parse(body);
+
   // Get the list of character URLs
-  const characterUrls = filmData.characters;
+  const characterUrls = movieData.characters;
 
-  // Function to fetch and print character names
-  async function fetchAndPrintCharacterNames(urls, index = 0) {
-    if (index < urls.length) {
-      // Make an HTTP GET request to the character URL
-      const response = await request(urls[index], { json: true });
+  // Fetch and print character names
+  await fetchAndPrintCharacterNames(characterUrls);
+});
 
-      // Check if the response status code is 200 OK
-      if (response.statusCode === 200) {
-        // Parse the JSON response from the API
-        const characterData = JSON.parse(response.body);
+// Function to fetch and print character names
+async function fetchAndPrintCharacterNames(characterUrls) {
+  // Create an empty array to store the fetched character names
+  const characters = [];
 
-        // Print the character name to the console
-        console.log(characterData.name);
+  // Iterate over the character URLs and fetch the character name for each URL
+  for (const characterUrl of characterUrls) {
+    // Make an HTTP GET request to the character URL
+    const response = await request(characterUrl);
 
-        // Recursively fetch and print the next character name
-        await fetchAndPrintCharacterNames(urls, index + 1);
-      } else {
-        console.error(error);
-      }
+    // Check if the response status code is 200 OK
+    if (response.statusCode === 200) {
+      // Parse the JSON response from the API
+      const characterData = JSON.parse(response.body);
+
+      // Add the character name to the array of fetched character names
+      characters.push(characterData.name);
+    } else {
+      console.error(error);
     }
   }
 
-  // Fetch and print the character names
-  await fetchAndPrintCharacterNames(characterUrls);
-});
+  // Once all character names have been fetched, print them to the console
+  characters.forEach((character) => console.log(character));
+}
