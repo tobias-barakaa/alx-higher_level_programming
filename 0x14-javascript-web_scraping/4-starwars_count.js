@@ -21,7 +21,7 @@ request(apiUrl, (error, response, body) => {
         // Check if the character URL contains '/18/' to match character ID 18
         if (characterUrl.includes('/18/')) {
           count++;
-          break; // Exit the inner loop when a match is found for this film
+          // Exit the inner loop when a match is found for this film
         }
       }
     }
