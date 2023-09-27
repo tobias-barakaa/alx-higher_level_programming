@@ -4,8 +4,11 @@ const request = require('request');
 const apiUrl = process.argv[2];
 
 request(apiUrl, (error, response, body) => {
-try {
-    const filmsData = JSON.parse(body);
+    if(error)
+    {
+        console.log(error)
+    }
+   const filmsData = JSON.parse(body);
     // Initialize a count variable
     let count = 0;
     // Loop through the films
@@ -20,10 +23,6 @@ try {
         }
       }
     }
-
-    console.log(count);
-  } catch (error) {
-    console.log(error);
-  }
+console.log(count);
 });
 
