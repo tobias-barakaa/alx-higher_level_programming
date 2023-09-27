@@ -6,7 +6,7 @@ const apiUrl = process.argv[2];
 // Initialize an empty object to store completed task counts by user ID
 const completedTasksByUser = {};
 // Send an HTTP GET request to the provided API URL
-request(apiUrl, async (error, response, body) => {
+request(apiUrl, (error, response, body) => {
   if (error) {
     console.log(error);
     process.exit(1);
@@ -24,5 +24,5 @@ request(apiUrl, async (error, response, body) => {
   }
 
   // Print the completed tasks by user as a JSON object
-  console.log(JSON.stringify(completedTasksByUser, null, 2));
+  console.log(completedTasksByUser);
 });
