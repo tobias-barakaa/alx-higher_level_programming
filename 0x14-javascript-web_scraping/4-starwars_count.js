@@ -1,12 +1,9 @@
 #!/usr/bin/node
 const request = require('request');
-
 // Extract the API URL from the command line argument
 const apiUrl = process.argv[2];
-
 // Character ID for Wedge Antilles
 const characterId = 18;
-
 // Make a GET request to the API
 request(apiUrl, (error, response, body) => {
   if(error)
@@ -30,8 +27,8 @@ request(apiUrl, (error, response, body) => {
       }
 
       console.log(count);
-    } catch (parseError) {
-      console.log(parseError);
+    } catch (error) {
+      console.log(error);
     }
   } else {
     console.log(response.statusCode);
