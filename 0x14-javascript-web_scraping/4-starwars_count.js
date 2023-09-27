@@ -9,9 +9,6 @@ const characterId = 18;
 
 // Make a GET request to the API
 request(apiUrl, (error, response, body) => {
-  if (error) {
-    console.log(error);
-  }
 
   // Check if the response status code is 200 (OK)
   if (response.statusCode === 200) {
