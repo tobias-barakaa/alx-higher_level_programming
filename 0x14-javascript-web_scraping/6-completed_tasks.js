@@ -1,28 +1,67 @@
 #!/usr/bin/node
 
 const request = require('request');
-const apiUrl = process.argv[2];
 
-// Initialize an empty object to store completed task counts by user ID
-const completedTasksByUser = {};
-// Send an HTTP GET request to the provided API URL
-request(apiUrl, (error, response, body) => {
+// Check if the required number of command line arguments is provided
+if (process.argv.length !== 3) {
+  console.error('Usage: node 100-starwars_characters.js <Movie_ID>');
+  process.exit(1);
+}
+
+// Get the movie ID from the command line arguments
+const movieId = process.argv[2];
+
+// Construct the API URL
+const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
+
+// Send an HTTP GET request to the API
+request(apiUrl, async (error, response, body) => {
   if (error) {
-    console.log(error);
+    console.error(error);
+    process.exit(1);
+  }
+
+  // Check if the response status code is 200 OK
+  if (response.statusCode !== 200) {
+    console.error(response.statusCode);
     process.exit(1);
   }
 
   // Parse the JSON response from the API
-  const todos = JSON.parse(body);
+  const movieData = JSON.parse(body);
 
-  // Iterate through the todos and count completed tasks by user
-  for (const todo of todos) {
-    if (todo.completed) {
-      const userId = todo.userId;
-      completedTasksByUser[userId] = (completedTasksByUser[userId] || 0) + 1;
+  // Check if the movie has any characters
+  if (!movieData.characters || movieData.characters.length === 0) {
+    console.log('No characters found for this movie.');
+    process.exit(0);
+  }
+
+  // Fetch and print character names
+  await fetchAndPrintCharacterNames(movieData.characters);
+});
+
+// Function to fetch and print character names
+async function fetchAndPrintCharacterNames(characterUrls) {
+  // Create an empty array to store the fetched character names
+  const characters = [];
+
+  // Iterate over the character URLs and fetch the character name for each URL
+  for (const characterUrl of characterUrls) {
+    // Make an HTTP GET request to the character URL
+    const response = await request(characterUrl);
+
+    // Check if the response status code is 200 OK
+    if (response.statusCode === 200) {
+      // Parse the JSON response from the API
+      const characterData = JSON.parse(response.body);
+
+      // Add the character name to the array of fetched character names
+      characters.push(characterData.name);
+    } else {
+      console.error(error);
     }
   }
 
-  // Print the completed tasks by user as a JSON object
-  console.log(completedTasksByUser);
-});
+  // Once all character names have been fetched, print them to the console
+  characters.forEach((character) => console.log(character));
+}
