@@ -7,9 +7,9 @@ const url = 'http://swapi.co/api/films/' + process.argv[2];
 let filmChars = [];
 const charNames = {};
 
-request({ url: url, json: true }, (err, res, body) => {
+request(url, (err, res, body) => {
   if (err) {
-    console.error(err);
+    console.log(err);
   } else {
     filmChars = body.characters;
     const requests = filmChars.map((index) => {
@@ -31,7 +31,7 @@ request({ url: url, json: true }, (err, res, body) => {
         });
       })
       .catch((err) => {
-        console.error(err);
+        console.log(err);
       });
   }
 });
