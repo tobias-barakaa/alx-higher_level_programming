@@ -4,6 +4,9 @@ const request = require('request');
 const apiUrl = process.argv[2];
 
 request(apiUrl, (error, response, body) => {
+  if (error) {
+    console.log(error)
+  }
   try {
     const filmsData = JSON.parse(body);
 
@@ -19,7 +22,7 @@ request(apiUrl, (error, response, body) => {
         const characterUrl = film.characters[j];
         
         // Check if the character URL contains '/18/' to match character ID 18
-        if (characterUrl.includes('/18/') > 0) {
+        if (characterUrl.includes('/18/')) {
            count++;
           // Exit the inner loop when a match is found for this film
         }
