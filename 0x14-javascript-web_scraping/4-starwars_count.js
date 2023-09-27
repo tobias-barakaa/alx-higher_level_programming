@@ -15,7 +15,7 @@ try {
       for (let j = 0; j < film.characters.length; j++) {
         const characterUrl = film.characters[j];
         // Check if the character URL contains '/18/' to match character ID 18
-        if (characterUrl.search('/18/')) {
+        if (characterUrl.includes('/18/')) {
            count++;
         }
       }
