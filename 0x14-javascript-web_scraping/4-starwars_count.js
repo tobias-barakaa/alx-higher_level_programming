@@ -24,7 +24,7 @@ request(apiUrl, (error, response, body) => {
 
       // Loop through the films and count the occurrences of Wedge Antilles
       for (const film of filmsData) {
-        if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)) {
+        if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}`)) {
           count++;
         }
       }
