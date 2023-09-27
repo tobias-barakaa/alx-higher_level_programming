@@ -6,12 +6,21 @@ const apiUrl = process.argv[2];
 // Initialize an empty object to store completed task counts by user ID
 const completedTasksByUser = {};
 
-request(apiUrl, (error, response, body) => {
+// Check if the API URL is provided
+if (!apiUrl) {
+  console.error('Error: Please provide an API URL as the first command line argument.');
+  process.exit(1);
+}
+
+// Send an HTTP GET request to the provided API URL
+request(apiUrl, async (error, response, body) => {
   if (error) {
-    console.log(error);
+    console.error(error);
     process.exit(1);
   }
-const todos = JSON.parse(body);
+
+  // Parse the JSON response from the API
+  const todos = JSON.parse(body);
 
   // Iterate through the todos and count completed tasks by user
   for (const todo of todos) {
@@ -22,5 +31,5 @@ const todos = JSON.parse(body);
   }
 
   // Print the completed tasks by user as a JSON object
-  console.log(completedTasksByUser);
+  console.log(JSON.stringify(completedTasksByUser, null, 2));
 });
