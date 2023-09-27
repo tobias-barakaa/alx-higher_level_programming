@@ -1,13 +1,6 @@
 #!/usr/bin/node
 
 const request = require('request');
-
-// Check if the required number of command line arguments is provided
-if (process.argv.length !== 3) {
-  console.error('Usage: node 100-starwars_characters.js <Movie_ID>');
-  process.exit(1);
-}
-
 // Get the movie ID from the command line arguments
 const movieId = process.argv[2];
 
@@ -17,13 +10,13 @@ const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
 // Send an HTTP GET request to the API
 request(apiUrl, async (error, response, body) => {
   if (error) {
-    console.error(error);
+    console.log(error);
     process.exit(1);
   }
 
   // Check if the response status code is 200 OK
   if (response.statusCode !== 200) {
-    console.error(response.statusCode);
+    console.log(response.statusCode);
     process.exit(1);
   }
 
@@ -32,7 +25,7 @@ request(apiUrl, async (error, response, body) => {
 
   // Check if the movie has any characters
   if (!movieData.characters || movieData.characters.length === 0) {
-    console.log('No characters found for this movie.');
+    console.log(error);
     process.exit(0);
   }
 
@@ -58,7 +51,7 @@ async function fetchAndPrintCharacterNames(characterUrls) {
       // Add the character name to the array of fetched character names
       characters.push(characterData.name);
     } else {
-      console.error(error);
+      console.log(error);
     }
   }
 
