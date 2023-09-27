@@ -1,13 +1,8 @@
 #!/usr/bin/node
-// Extract the API URL from the command line argument
 const request = require('request');
 const apiUrl = process.argv[2];
 
 request(apiUrl, (error, response, body) => {
-    if(error)
-    {
-        console.log(error)
-    }
    const filmsData = JSON.parse(body);
     // Initialize a count variable
     let count = 0;
@@ -25,4 +20,3 @@ request(apiUrl, (error, response, body) => {
     }
 console.log(count);
 });
-
