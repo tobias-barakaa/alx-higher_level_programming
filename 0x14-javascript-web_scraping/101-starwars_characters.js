@@ -6,9 +6,9 @@ const movieId = process.argv[2];
 
 const baseUrl = 'https://swapi.dev/api/films/';
 
-request(baseUrl + movieId, { json: true }, (err, res, filmData) => {
+request(baseUrl + movieId, (err, res, filmData) => {
   if (err) {
-    console.error(err);
+    console.log(err);
   } else {
     const characterUrls = filmData.characters;
 
@@ -17,7 +17,7 @@ request(baseUrl + movieId, { json: true }, (err, res, filmData) => {
       if (index < urls.length) {
         request(urls[index], { json: true }, (err, res, characterData) => {
           if (err) {
-            console.error(err);
+            console.log(err);
           } else {
             console.log(characterData.name);
             fetchAndPrintCharacterNames(urls, index + 1);
