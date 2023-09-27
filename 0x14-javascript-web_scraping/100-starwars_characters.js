@@ -1,23 +1,21 @@
 #!/usr/bin/node
 
 const request = require('request');
-
 if (process.argv.length !== 3) {
   console.error('Usage: node 100-starwars_characters.js <Movie_ID>');
   process.exit(1);
 }
-
 const movieId = process.argv[2];
 const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
 
 request(apiUrl, (error, response, body) => {
   if (error) {
-    console.error('Error:', error);
+    console.log(error);
     process.exit(1);
   }
 
   if (response.statusCode !== 200) {
-    console.error('HTTP Request Failed with Status Code:', response.statusCode);
+    console.log(response.statusCode);
     process.exit(1);
   }
 
@@ -46,7 +44,7 @@ function fetchAndPrintCharacterNames(characterUrls) {
           characters.forEach((character) => console.log(character));
         }
       } else {
-        console.error('Error fetching character:', error);
+        console.log(error);
       }
     });
   }
