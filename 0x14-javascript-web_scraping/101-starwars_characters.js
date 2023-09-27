@@ -2,57 +2,50 @@
 
 const request = require('request');
 
-// Get the movie ID from the command line arguments
+// Check if the user provided the Movie ID as a command line argument
+if (process.argv.length !== 3) {
+  console.error('Usage: node 101-starwars_characters.js <Movie_ID>');
+  process.exit(1);
+}
+
+// Extract the Movie ID from the command line argument
 const movieId = process.argv[2];
 
-// Construct the API URL
-const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
+// Construct the URL for the movie's details
+const apiUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}/`;
 
-// Send an HTTP GET request to the API
-request(apiUrl, async (error, response, body) => {
+// Make a GET request to the API
+request(apiUrl, (error, response, body) => {
   if (error) {
-    console.error(error);
+    console.error('Error:', error);
     process.exit(1);
   }
 
-  // Check if the response status code is 200 OK
-  if (response.statusCode !== 200) {
-    console.error(response.statusCode);
-    process.exit(1);
-  }
+  // Check if the response status code is 200 (OK)
+  if (response.statusCode === 200) {
+    try {
+      const movieData = JSON.parse(body);
 
-  // Parse the JSON response from the API
-  const movieData = JSON.parse(body);
-
-  // Get the list of character URLs
-  const characterUrls = movieData.characters;
-
-  // Fetch and print character names
-  await fetchAndPrintCharacterNames(characterUrls);
-});
-
-// Function to fetch and print character names
-async function fetchAndPrintCharacterNames(characterUrls) {
-  // Create an empty array to store the fetched character names
-  const characters = [];
-
-  // Iterate over the character URLs and fetch the character name for each URL
-  for (const characterUrl of characterUrls) {
-    // Make an HTTP GET request to the character URL
-    const response = await request(characterUrl);
-
-    // Check if the response status code is 200 OK
-    if (response.statusCode === 200) {
-      // Parse the JSON response from the API
-      const characterData = JSON.parse(response.body);
-
-      // Add the character name to the array of fetched character names
-      characters.push(characterData.name);
-    } else {
-      console.error(error);
+      // Check if the movie data contains a "characters" property
+      if (Array.isArray(movieData.characters)) {
+        // Display each character name
+        movieData.characters.forEach((characterUrl) => {
+          request(characterUrl, (charError, charResponse, charBody) => {
+            if (charError) {
+              console.error('Error:', charError);
+            } else if (charResponse.statusCode === 200) {
+              const characterData = JSON.parse(charBody);
+              console.log(characterData.name);
+            }
+          });
+        });
+      } else {
+        console.log('No characters found for this movie.');
+      }
+    } catch (parseError) {
+      console.error('Error parsing JSON:', parseError);
     }
+  } else {
+    console.error('Error:', response.statusCode);
   }
-
-  // Once all character names have been fetched, print them to the console
-  characters.forEach((character) => console.log(character));
-}
+});
