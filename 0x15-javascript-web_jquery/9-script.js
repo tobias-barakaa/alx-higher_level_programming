@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    $.get("https://fourtonfish.com/hellosalut/?lang=fr", function(data) {
-        var translation = data.hello;
-        $("#hello").text(translation);
+(function() {
+    $.get("https://hellosalut.stefanbohacek.dev/?lang=fr", function(data) {
+      const hello = data.hello;
+        $("#hello").text(hello);
     });
-});
+  })();
